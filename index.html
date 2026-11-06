@@ -163,7 +163,7 @@ section{padding-block:80px;border-bottom:1px solid var(--line)}
 .mem-rounds{display:flex;gap:6px}
 .mem-rounds i{width:28px;height:4px;background:#3a3127}
 .mem-rounds i.done{background:var(--tiff)}.mem-rounds i.cur{background:var(--gold)}
-.board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;perspective:1000px;max-width:820px;margin:0 auto}
+.board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;perspective:1000px;max-width:min(820px,calc((100vh - 210px) * .9375 + 48px));max-width:min(820px,calc((100svh - 210px) * .9375 + 48px));min-width:min(100%,420px);margin:0 auto;scroll-margin-top:150px}
 @media (max-width:640px){.board{gap:6px}.mc .fr em{font-size:.55rem;padding:12px 3px 3px}}
 .mc{position:relative;aspect-ratio:3/4;border:0;padding:0;background:none;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .mc.up,.mc.ok{transform:rotateY(180deg)}
@@ -658,7 +658,7 @@ function memDone(){mTotal+=mMoves;const set=mOrder.slice(mRound*10,mRound*10+10)
      <ul>${traitsOf(g).map(t=>`<li>${kim(t)}</li>`).join('')}</ul></div>
      <div class="row"><span>${esc(g.first).slice(0,60)}${g.first.length>60?'…':''}</span><button data-id="${g.id}">Досье →</button></div></article>`).join('')}</div>`;
   r.querySelectorAll('.mi .row button').forEach(b=>b.onclick=()=>openD(b.dataset.id));
-  $('#memNext').onclick=()=>{if(last){memNewGame()}else{mRound++;memRound()}$('#memory').scrollIntoView({behavior:'smooth'})};
+  $('#memNext').onclick=()=>{if(last){memNewGame()}else{mRound++;memRound()}$('#board').scrollIntoView({behavior:'smooth',block:'start'})};
   if(last)goldRain();
   r.scrollIntoView({behavior:'smooth',block:'start'});
 }
