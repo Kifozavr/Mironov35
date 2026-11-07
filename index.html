@@ -4,6 +4,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta charset="utf-8">
 <title>Семья Мирони · 35мм</title>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=114120569', 'ym');
+
+    ym(114120569, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114120569" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -526,6 +540,7 @@ const RU_YEARS=n=>{n=Math.abs(n)%100;const a=n%10;if(n>10&&n<20)return'лет';i
 
 /* ---------- helpers ---------- */
 const $=s=>document.querySelector(s);
+const goal=(n,p)=>{try{if(window.ym)ym(114120569,'reachGoal',n,p)}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const kim=s=>esc(s).replace(/Кими(?!м)/g,'<span class="kimmi" title="Кимми. С двумя М, Тёма!">Ким<ins>м</ins>и</span>');
 const fold=n=>n<700?'photos-1':n<1600?'photos-2':'photos-3';
@@ -549,7 +564,7 @@ tick();setInterval(tick,1000);
   requestAnimationFrame(f);
   $('#leader').addEventListener('click',()=>{i=0;t0=performance.now();requestAnimationFrame(f)});
 })();
-$('#title .don').addEventListener('click',()=>{$('#title').classList.toggle('mustached');if($('#title').classList.contains('mustached'))toast('Усы Дона на месте. Можно начинать.')});
+$('#title .don').addEventListener('click',()=>{$('#title').classList.toggle('mustached');if($('#title').classList.contains('mustached'))goal('egg_mustache'),toast('Усы Дона на месте. Можно начинать.')});
 
 /* ---------- dossiers ---------- */
 let filter='all';
@@ -570,7 +585,7 @@ renderFilters();renderGrid();
 
 /* Макс засыпает, если на него долго смотреть */
 let sleepT;document.addEventListener('mouseover',e=>{const c=e.target.closest('.sleepy-cand');clearTimeout(sleepT);
-  if(c){sleepT=setTimeout(()=>{c.classList.add('sleepy');toast('Макс уснул в разгар веселья. Это нормально, он после перелёта.')},3500)}});
+  if(c){sleepT=setTimeout(()=>{c.classList.add('sleepy');goal('egg_sleepy_max');toast('Макс уснул в разгар веселья. Это нормально, он после перелёта.')},3500)}});
 
 const dlg=$('#dlg');
 function openD(id){const g=G.find(x=>x.id===id);if(!g)return;const i=G.indexOf(g)+1;
@@ -588,7 +603,7 @@ function openD(id){const g=G.find(x=>x.id===id);if(!g)return;const i=G.indexOf(g
      ${g.song?`<a class="songbtn" href="${g.song[1]}" target="_blank" rel="noopener">♫ ${esc(g.song[0])} · песня для караоке</a>`:''}
      ${g.love?`<div class="love">${esc(g.love)}</div>`:(g.secret?'':'<div class="love">Спасибо, что вы есть. Люблю!</div>')}
    </div></div>`;
-  dlg.showModal();dlg.querySelector('.dossier').scrollTop=0;
+  dlg.showModal();dlg.querySelector('.dossier').scrollTop=0;goal('dossier',{guest:g.names});
   try{history.replaceState(null,'','#d-'+id)}catch(e){}
   dlg.querySelector('.close').onclick=closeD;
   dlg.querySelectorAll('.thumbs button').forEach(b=>b.onclick=()=>{
@@ -649,7 +664,7 @@ function memFlip(c){if(mLock||c.classList.contains('up')||c.classList.contains('
   else{mLock=true;setTimeout(()=>{a.classList.add('shake');b.classList.add('shake')},450);
     setTimeout(()=>{[a,b].forEach(x=>{x.classList.remove('up','shake');x.setAttribute('aria-label','Закрытая карта')});mLock=false},1100)}
 }
-function memDone(){mTotal+=mMoves;const set=mOrder.slice(mRound*10,mRound*10+10);const last=mRound===2;
+function memDone(){goal('memiron_round',{round:mRound+1,moves:mMoves});if(mRound===2)goal('memiron_done',{moves:mTotal+mMoves});mTotal+=mMoves;const set=mOrder.slice(mRound*10,mRound*10+10);const last=mRound===2;
   const verdict=mMoves<=14?'Память как у Димы Andreyci: феноменальная.':mMoves<=20?'Крепкий Капореджиме.':mMoves<=28?'Нормально, но Гуля уже скачала приложение для тренировки памяти.':'Рыбка Дорри одобряет. Главное — жить здесь и сейчас.';
   const r=$('#memRes');r.hidden=false;
   r.innerHTML=`<div class="head"><div><div class="eyebrow">Раунд ${mRound+1} пройден · ${mMoves} ходов</div><h3>${last?'Вся семья в памяти':'Знакомьтесь ещё раз'}</h3><p style="margin:6px 0 0;color:#cfc5ae">${verdict}${last?` Всего за игру: ${mTotal} ходов на 25 гостей.`:''}</p></div>
@@ -685,7 +700,7 @@ let qi=0,score=0,res=[];
 function rankOf(s){let r=0;RANKS.forEach((x,k)=>{if(s>=x[0])r=k});return r}
 function renderQ(){const box=$('#qbox');
   const prog=`<div class="qprog">${Q.map((_,k)=>`<i class="${res[k]===true?'ok':res[k]===false?'bad':k===qi?'on':''}"></i>`).join('')}</div>`;
-  if(qi>=Q.length){const r=rankOf(score);document.querySelectorAll('#ranks li').forEach(l=>l.classList.toggle('me',+l.dataset.r===r));
+  if(qi>=Q.length){const r=rankOf(score);goal('quiz_done',{rank:RANKS[r][1],score});document.querySelectorAll('#ranks li').forEach(l=>l.classList.toggle('me',+l.dataset.r===r));
     box.innerHTML=prog+`<div class="result"><div class="eyebrow">Ваше звание</div><div class="big">${RANKS[r][1]}</div><p>${score} из ${Q.length}. ${r>=3?'Семья гордится. 12 ноября вы опора команды.':'Ещё есть выходные и четыре денёчка, чтобы перечитать канал.'}</p><button class="btn" id="qre">Ещё раз</button></div>`;
     $('#qre').onclick=()=>{qi=0;score=0;res=[];renderQ()};if(score===Q.length)goldRain();return}
   const [t,o,a,e]=Q[qi];
@@ -738,7 +753,7 @@ function drawWheel(){const R=cv.width/2,n=W.length,a=2*Math.PI/n;cx.clearRect(0,
   cx.beginPath();cx.arc(0,0,R*.2,0,7);cx.fillStyle='#0e0c0a';cx.fill();cx.strokeStyle='#d2a94f';cx.lineWidth=4;cx.stroke();
   cx.fillStyle='#d2a94f';cx.font='64px Oranienbaum, Georgia, serif';cx.textAlign='center';cx.fillText('35',0,22);cx.restore()}
 document.fonts&&document.fonts.ready.then(drawWheel);drawWheel();
-function spinW(){if(spinning)return;spinning=true;chips-=10;$('#chipsN').textContent=chips;
+function spinW(){if(spinning)return;goal('roulette_spin');spinning=true;chips-=10;$('#chipsN').textContent=chips;
   const n=W.length,a=2*Math.PI/n,target=Math.floor(Math.random()*n);
   const pointer=-Math.PI/2;let final=pointer-(target+.5)*a+(Math.random()-.5)*a*.6;
   while(final<ang+Math.PI*10)final+=2*Math.PI;
@@ -750,7 +765,7 @@ function spinW(){if(spinning)return;spinning=true;chips-=10;$('#chipsN').textCon
        <div class="song">♫ Заказать у Димы: ${esc(so)}</div>
        <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="spin2">Крутить ещё</button><button class="btn ghost" id="openP">Открыть досье</button></div>`;
       $('#spin2').onclick=spinW;$('#openP').onclick=()=>openD(g.id);
-      if(Math.random()<.12)setTimeout(()=>toast('Джекпот! Подойдите 12-го к Дону и скажите пароль «Чткзбсс».'),600)}})(t0)}
+      if(Math.random()<.12)setTimeout(()=>goal('egg_jackpot')||toast('Джекпот! Подойдите 12-го к Дону и скажите пароль «Чткзбсс».'),600)}})(t0)}
 $('#spin').onclick=spinW;
 
 /* ---------- tarot ---------- */
@@ -777,7 +792,7 @@ const POS=['Что было','Что есть','Что будет'];
 function deal(){const pool=[...CARDS].sort(()=>Math.random()-.5).slice(0,3);
   $('#tarotBox').innerHTML=pool.map((c,k)=>`<button class="tc" aria-label="Перевернуть карту: ${POS[k]}"><div class="face back"><div class="sun">35</div><div class="pos">${POS[k]}</div></div>
    <div class="face front"><div class="ar">${POS[k]} · ${c[0]}</div><div class="glyph">${c[2]}</div><h3>${c[1]}</h3><p>${c[3]}</p></div></button>`).join('');
-  document.querySelectorAll('.tc').forEach(b=>b.onclick=()=>b.classList.add('open'))}
+  document.querySelectorAll('.tc').forEach(b=>b.onclick=()=>{if(!b.classList.contains('open'))goal('tarot_card');b.classList.add('open')})}
 deal();$('#reshuffle').onclick=deal;
 
 /* ---------- easter eggs ---------- */
@@ -788,13 +803,13 @@ function goldRain(){const box=document.createElement('div');box.className='gold-
 const KN=['Кит Норрис смог провести 24-часовую вечеринку за 12 часов.','Когда Кит режет лук, плачет лук.','Когда Кит играет на гитаре Макса Коржа, Корж проигрывает.','Когда Кит засыпает, он считает друзей. Чужих друзей и друзей друзей.','Нейронки учатся на удалённых заметках Кита.','Кит Норрис может произнести тост ногой. Чужой ногой.','Если Кит Норрис приходит без подарка, именинник всё равно остаётся должен.','Мессенджер Макс мечтает установить Кита.'];
 function kitNorris(n=1){for(let k=0;k<n;k++)setTimeout(()=>toast('🐋 '+KN[Math.floor(Math.random()*KN.length)]),k*4200+600)}
 let buf='';document.addEventListener('keydown',e=>{if(e.key.length!==1||e.target.matches('input,textarea'))return;buf=(buf+e.key.toLowerCase()).slice(-12);
-  if(buf.endsWith('чткзбсс')||buf.endsWith('xnrp,cc')){goldRain();toast('ЧТКЗБСС. Ну, вы поняли, о чём он.');buf=''}
-  else if(buf.endsWith('золото')||buf.endsWith('gold')){goldRain();toast('НАМ НУЖНО БОЛЬШЕ ЗОЛОТА! Ай нэ нэ нэ!');buf=''}
-  else if(buf.endsWith('кит')||buf.endsWith('kit')){kitNorris(1);buf=''}
-  else if(buf.endsWith('13')){document.body.animate([{filter:'none'},{filter:'hue-rotate(-30deg) saturate(2) brightness(.7)'},{filter:'none'}],{duration:1400});toast('Пятница, 13-е. Адская. Не говорите, что Дон не предупреждал.');buf=''}
+  if(buf.endsWith('чткзбсс')||buf.endsWith('xnrp,cc')){goal('egg_chtkzbss');goldRain();toast('ЧТКЗБСС. Ну, вы поняли, о чём он.');buf=''}
+  else if(buf.endsWith('золото')||buf.endsWith('gold')){goal('egg_gold');goldRain();toast('НАМ НУЖНО БОЛЬШЕ ЗОЛОТА! Ай нэ нэ нэ!');buf=''}
+  else if(buf.endsWith('кит')||buf.endsWith('kit')){goal('egg_kit');kitNorris(1);buf=''}
+  else if(buf.endsWith('13')){goal('egg_13');document.body.animate([{filter:'none'},{filter:'hue-rotate(-30deg) saturate(2) brightness(.7)'},{filter:'none'}],{duration:1400});toast('Пятница, 13-е. Адская. Не говорите, что Дон не предупреждал.');buf=''}
 });
-let sc=0;$('#scorp').onclick=()=>{sc++;if(sc===3){$('#gerb').hidden=false;toast('Герб, нарисованный в 12–13 лет. Актуальности не потерял.')}else if(sc<3)toast(['Скорпион. Третья стадия развития.','Ещё разок. Скорпионы не сдаются.'][sc-1])};
-let idle;function resetIdle(){clearTimeout(idle);idle=setTimeout(()=>toast('Надя и Макс уже уснули. Подушки и одеялко готовы, Дон позаботился.',5000),75000)}
+let sc=0;$('#scorp').onclick=()=>{sc++;if(sc===3){$('#gerb').hidden=false;goal('egg_gerb');toast('Герб, нарисованный в 12–13 лет. Актуальности не потерял.')}else if(sc<3)toast(['Скорпион. Третья стадия развития.','Ещё разок. Скорпионы не сдаются.'][sc-1])};
+let idle;function resetIdle(){clearTimeout(idle);idle=setTimeout(()=>goal('egg_idle')||toast('Надя и Макс уже уснули. Подушки и одеялко готовы, Дон позаботился.',5000),75000)}
 ['mousemove','keydown','scroll','touchstart'].forEach(ev=>addEventListener(ev,resetIdle,{passive:true}));resetIdle();
 console.log('%cДон Мирони вновь вернулся в город 🐦‍🔥\n%cНаберите на сайте «чткзбсс», «золото», «кит» или «13».','font:24px Georgia;color:#d2a94f','color:#7fd6cc');
 </script>
