@@ -205,6 +205,48 @@ section{padding-block:80px;border-bottom:1px solid var(--line)}
 .mi li::marker{color:var(--gold)}
 .mi .row{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px dashed var(--line);padding-top:8px;font-family:var(--f-mono);font-size:.74rem;color:var(--silver)}
 .mi .row button{background:none;border:0;color:var(--tiff);font-family:var(--f-mono);font-size:.78rem;padding:0}
+/* don */
+.don-sec{background:linear-gradient(180deg,rgba(210,169,79,.06),transparent 40%)}
+.don-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:start}
+@media (max-width:900px){.don-grid{grid-template-columns:1fr;gap:28px}}
+.don-photos{position:sticky;top:90px;display:flex;flex-direction:column;gap:10px}
+@media (max-width:900px){.don-photos{position:static}}
+.don-main{position:relative;border:1px solid var(--gold-dim);padding:10px;background:var(--ink-2)}
+.don-main img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;cursor:zoom-in}
+.don-main .no{position:absolute;top:18px;left:18px;font-family:var(--f-mono);font-size:.72rem;background:var(--ink);color:var(--gold);padding:3px 7px;border:1px solid var(--gold-dim)}
+.don-main .stamp{position:absolute;right:-4px;bottom:30px;transform:rotate(-7deg);font-family:var(--f-mono);font-size:.8rem;letter-spacing:.14em;color:var(--gold);border:2px solid var(--gold);padding:4px 10px;background:rgba(14,12,10,.75);text-transform:uppercase}
+.don-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.don-thumbs button{padding:0;border:1px solid var(--line);background:#000;aspect-ratio:1;overflow:hidden}
+.don-thumbs button:hover,.don-thumbs button.on{border-color:var(--gold)}
+.don-thumbs img{width:100%;height:100%;object-fit:cover;filter:sepia(.3)}
+.don-thumbs button.on img,.don-thumbs button:hover img{filter:none}
+.don-cap{font-family:var(--f-mono);font-size:.74rem;color:var(--silver);min-height:1.2em}
+.don-text{display:flex;flex-direction:column;gap:22px;min-width:0}
+.don-text h2{font-size:clamp(2.6rem,6vw,4.8rem)}
+.don-text .sub{font-family:var(--f-deco);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-size:.95rem}
+.don-aka{font-family:var(--f-mono);font-size:.84rem;line-height:1.7;color:#d8cfba}
+.don-aka{display:flex;flex-wrap:wrap;column-gap:.35em}
+.don-aka span{min-width:0}
+.don-aka span::after{content:" · ";color:var(--gold-dim)}
+.don-aka span:last-child::after{content:""}
+.don-aka b{color:var(--gold);font-weight:400}
+.src{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.06em;color:var(--tiff);border:1px solid rgba(127,214,204,.4);padding:1px 6px;margin-left:6px;white-space:nowrap;vertical-align:2px}
+.don-block h4{font-family:var(--f-deco);font-weight:400;letter-spacing:.18em;text-transform:uppercase;font-size:.85rem;color:var(--gold);margin:0 0 8px}
+.don-block ul{margin:0;padding-left:1.1em}
+.don-block li{margin:5px 0;font-size:1.02rem}
+.don-block li::marker{color:var(--gold)}
+.don-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+@media (max-width:640px){.don-cols{grid-template-columns:1fr}}
+.don-story{border-left:2px solid var(--gold-dim);padding:4px 0 4px 16px;margin:0 0 14px;color:#e0d7c3;font-size:1.02rem}
+.don-story p{margin:0}
+.don-songs{display:flex;flex-wrap:wrap;gap:10px}
+.don-songs a,.don-songs span{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--tiff);color:var(--tiff);padding:9px 13px;text-decoration:none;font-family:var(--f-mono);font-size:.82rem}
+.don-songs a:hover{background:rgba(127,214,204,.1)}
+.verdict{border:1px solid var(--gold-dim);background:var(--ink-2);padding:22px 24px}
+.verdict p{margin:0 0 10px;font-size:1.05rem}
+.verdict .end{font-family:var(--f-display);font-size:1.5rem;color:var(--gold);margin:0}
+.don-credits{font-family:var(--f-mono);font-size:.76rem;color:var(--silver)}
+.count-cap{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:26px 0 -18px}
 /* quiz */
 .quiz{display:grid;grid-template-columns:1fr 320px;gap:36px;align-items:start}
 @media (max-width:860px){.quiz{grid-template-columns:1fr}}
@@ -322,21 +364,23 @@ footer .motto{font-family:var(--f-display);font-size:clamp(1.6rem,3.4vw,2.4rem);
 <header class="bar"><div class="wrap">
   <a class="logo" href="#top">Семья Мирони<small>35мм</small></a>
   <nav class="nav" aria-label="Разделы">
-    <a href="#dossiers">Досье</a><a href="#chrono">Хронология</a><a href="#memory">Мемирон</a><a href="#program">12.11</a><a href="#quiz">Проверка</a><a href="#casino">Казино</a><a href="#tarot">Таро</a>
+    <a href="#don">Дон</a><a href="#dossiers">Досье</a><a href="#chrono">Хронология</a><a href="#memory">Мемирон</a><a href="#program">12.11</a><a href="#quiz">Проверка</a><a href="#casino">Казино</a><a href="#tarot">Таро</a>
   </nav>
 </div></header>
 
 <main id="top">
 <div class="hero"><div class="wrap">
   <div>
-    <div class="eyebrow">Дело № 35 · Москва · KROV · 12.11.2026</div>
+    <div class="eyebrow">Дело № 35 · Москва · KROV · 12.11.2026 · начало в 19:00</div>
     <h1 id="title"><span class="don">Дон Мирони<svg class="stache" viewBox="0 0 100 30" aria-hidden="true"><path fill="#d2a94f" d="M50 10c-6-8-18-10-28-4-7 4-13 4-20 0 4 12 16 20 30 16 8-2 14-7 18-12 4 5 10 10 18 12 14 4 26-4 30-16-7 4-13 4-20 0-10-6-22-4-28 4z"/></svg></span><em>снова в городе</em></h1>
     <p class="lede">Сейчас опять двадцатые, а значит в этом мире всё циклично. Артемию <b>35</b>, и Кров на одну ночь становится машиной времени в <b>1920-е</b>: Гэтсби, острые козырьки, мафия, джентльмены. Здесь собраны досье на все семьи и кланы, которые съедутся 12 ноября. Читайте внимательно: Дон обещал проверку остаточных знаний.</p>
     <div class="facts">
+      <span><b>12.11 · 19:00</b>начало вечеринки</span>
       <span><b>Чт 12 → Пт 13</b>под Кровом сколько захотим</span>
       <span><b>38 гостей</b>19 мальчиков, 19 девочек</span>
       <span><b>18+</b>детей оставьте тем, кому доверяете</span>
     </div>
+    <div class="count-cap">До дня рождения Артемия</div>
     <div class="count" id="count" aria-live="polite"></div>
   </div>
   <div>
@@ -344,6 +388,81 @@ footer .motto{font-family:var(--f-display);font-size:clamp(1.6rem,3.4vw,2.4rem);
     <div class="leader-cap">Циклы Кондратьева: 1926 → 2026</div>
   </div>
 </div></div>
+
+<section id="don" class="don-sec"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Дело № 00 · именинник</div><h2>Сам Дон</h2><div class="rule"></div>
+    <p>Месяц Артемий составлял досье на всех нас. Пришло время ответить тем же. Это досье собрано из описаний четырёх людей: Кимми, Полины, Саши и Гули. Метка рядом с пунктом показывает, кто его написал.</p></div>
+  <div class="don-grid">
+    <div class="don-photos">
+      <div class="don-main"><img id="donMain" src="don/1009.webp" alt="Артемий Миронов"><span class="no">ДЕЛО №00</span><span class="stamp">Дон · 35</span></div>
+      <div class="don-cap" id="donCap">Гэтсби с бокалом. Таким Дон войдёт в Кров 12 ноября</div>
+      <div class="don-thumbs" id="donThumbs"></div>
+    </div>
+    <div class="don-text">
+      <div><h2>Артемий Игоревич Миронов</h2><div class="sub" style="margin-top:10px">Don Mironi · MirOnOff · Mr. AIMironov</div></div>
+      <dl class="fields">
+        <dt>Статус</dt><dd>Дон. Хозяин Крова. Машина времени в 1920-е<span class="src">Гуля</span></dd>
+        <dt>Возраст</dt><dd>35: ровно столько, чтобы считаться и молодым, и опасным<span class="src">Гуля</span></dd>
+        <dt>Дислокация</dt><dd>Кров, территория завода «Кристалл». Лимончелло на спирте с этого завода — не напиток, а политический жест<span class="src">Гуля</span></dd>
+        <dt>Первая встреча</dt><dd>У каждого своя. Кимми: осень 2010, поезд Москва — Санкт-Петербург, «учитывая мой топографический и иногда хронологический кретинизм»<span class="src">Кимми</span>. Саша и Полина: 4 сентября 2024, Moscow Fashion Week. Тёма с Китом обещали позвонить и ушли петь с рейверами под фортепиано. Первую встречу считаем технической, вторую, на квизе, — исторической<span class="src">Поля</span><span class="src">Кифа</span></dd>
+      </dl>
+      <div class="don-block"><h4>Псевдонимы</h4>
+        <div class="don-aka"><span><b>MirOnOff</b></span><span>Душенька</span><span>Мир</span><span>Дон Мирони</span><span>Mr. AIMironov</span><span>Дед Артемий</span><span>Ваше Огородие</span><span>Король Кубков (минимум Жезлов)</span><span>Цыганский барон</span><span>Сладкий пирожок</span><span>Жулик</span><span>Арамис</span><span>Велобрат</span><span>Учитель танцев</span><span>Реутовская звёздочка</span><span>Главный крупье беспроигрышного казино</span><span>Арт Миро</span><span>орёл, летящий в направлении голубя</span><span>человек, который знает о Полине, что она «шото с дизайном»</span></div>
+      </div>
+      <div class="don-cols">
+        <div class="don-block"><h4>Ум и душа</h4><ul>
+          <li>Один из самых умных людей на всей земле, ей-богу<span class="src">Кимми</span></li>
+          <li>Скорпион третьей стадии, хотя, возможно, уже перешёл на четвёртую<span class="src">Кифа</span></li>
+          <li>Православный буддист: отказался от желаний и достиг просветления. Страдания при этом сильно не уменьшились<span class="src">Кифа</span></li>
+          <li>Добрый, искренний, милый, воспитанный. Иногда, а иногда всегда — конкретная «Душенька» во всех проявлениях<span class="src">Кимми</span></li>
+          <li>Никогда ни о чём не просит, потому что так завещал Булгаков<span class="src">Кифа</span></li>
+          <li>Ходит по тонкому льду, иначе ему скучно<span class="src">Поля</span></li>
+        </ul></div>
+        <div class="don-block"><h4>Собиратель людей</h4><ul>
+          <li>Душа любой компании. Легко заводит знакомства с абсолютно разными людьми в абсолютно разных местах<span class="src">Кимми</span></li>
+          <li>Собирает людей не просто так, а в семьи и кланы: 25 дел, 35 лет, одна плёнка. Первый союз заключён в 1991-м<span class="src">Гуля</span></li>
+          <li>Сумел объединить нас всех, таких разных и уникальных. А значит, сам безумно многогранен и умеет этим пользоваться<span class="src">Кимми</span></li>
+          <li>Личный биограф-архивариус всех присутствующих. Если бы был следователем, участок был бы образцовым. Хотя участок у него есть<span class="src">Кифа</span></li>
+          <li>В периоды «неактивности» может пропасть с горизонта месяцев на шесть. Раньше было немного обидно, но с годами восприятие многих вещей изменилось<span class="src">Кимми</span></li>
+        </ul></div>
+        <div class="don-block"><h4>Навыки</h4><ul>
+          <li>Артемий — машина. Причём вычислительная: его MironovAI месяц вёл канал без AI, руками и сердцем<span class="src">Кифа</span></li>
+          <li>Агроном: четыре сезона по 4 месяца на даче, получается 4×4 — полноприводный Агроном<span class="src">Кифа</span></li>
+          <li>Миксолог: три литра безалкогольного коктейля, в котором безалкогольным можно считать только описание<span class="src">Кифа</span></li>
+          <li>Бальные и латина, второе место по Москве и области. Потом айкидо, нунчаки, баскетбол. Сегодня — первенство в стиле пьяного мастера<span class="src">Кифа</span></li>
+          <li>Киноман и сериалофил: в детстве мечтал пересмотреть все фильмы в мире, Netflix внёс коррективы<span class="src">Кифа</span></li>
+          <li>Велобрат: ездит красиво, но остановиться может только у бара<span class="src">Поля</span></li>
+        </ul></div>
+        <div class="don-block"><h4>Особые приметы</h4><ul>
+          <li>Коллекционер рассветов и иногда закатов<span class="src">Кимми</span>. Встречает их раньше, чем мы ложимся спать<span class="src">Поля</span></li>
+          <li>Цикличен: верит в циклы Кондратьева. Если сейчас опять двадцатые, он обязан устроить съезд семей. И устраивает<span class="src">Гуля</span></li>
+          <li>Составил палитру ЧТКЗБСС. Как недизайнер — одобряю. Как человек — чтк збс<span class="src">Поля</span></li>
+          <li>Попросил на вечеринку «больше золота». Воспринято как техническое задание<span class="src">Поля</span></li>
+          <li>Пишет Кимми с одной М. К имени Полины претензий нет: в нём одна «л», и он её пока не потерял<span class="src">Поля</span></li>
+          <li>Не проигрывает: казино la Familia беспроигрышное, фишки не кончаются<span class="src">Гуля</span></li>
+          <li>Вероятно, имеет отношение к производству зефира «Дон Зефирони» и гастробизнесу «by Mironov». Но это не точно<span class="src">Гуля</span></li>
+        </ul></div>
+      </div>
+      <div class="don-block"><h4>Из материалов дела</h4>
+        <div class="don-story"><p>Культурная столица, ночь, отличная экскурсия по барам. Миронов благородно вызвался проводить Кимми с подругой. Через несколько минут резко остановился посреди дороги, помолчал полминуты, сказал: «Я пошёл, спокойной ночи». И ушёл. На следующий день при подсчёте выпитого всё встало на свои места. Было ещё что-то про морошку, но эту часть дела Дон расскажет сам.<span class="src">Кимми</span></p></div>
+        <div class="don-story"><p>Второе знакомство с Сашей и Полиной случилось на квизе. Что-то они там даже выиграли, но главный приз Тёма забрал у настоящих победителей: те сами отдали ему своё игристое. Как он это сделал, никто не понял. Тёма называет это скорпионьим колдунством.<span class="src">Поля</span></p></div>
+        <div class="don-story"><p>В 12 лет нарисовал собственный герб: «Знание — сила. Страх — слабость. Слово — орудие». За это мама, папа и дядя Олег взяли художника с собой на стриптиз. Там Артемий полностью следовал принципу «Слово — орудие» и применил его ко всем танцовщицам, восхищаясь их физподготовкой. После этого сам записался на танцы, но оказалось, что балет — не то же самое, что пилон.<span class="src">Кифа</span></p></div>
+      </div>
+      <div class="don-block"><h4>Песни для Дона</h4>
+        <div class="don-songs">
+          <span>♫ Киркоров — «Я эту жизнь тебе отдам»: будем петь все вместе<span class="src">Кимми</span></span>
+          <a href="https://music.yandex.ru/album/124660/track/3853787" target="_blank" rel="noopener">♫ «Танец злобного гения»: кто злобный, а кто танцор?<span class="src">Поля</span></a>
+          <a href="https://music.yandex.ru/album/18606911/track/75491801" target="_blank" rel="noopener">♫ Lucky Man: с такими людьми вокруг иначе не назовёшь<span class="src">Кифа</span></a>
+        </div>
+      </div>
+      <div class="verdict"><div class="eyebrow" style="margin-bottom:10px">Вердикт<span class="src">Гуля</span></div>
+        <p>Арт Миро — не просто именинник. Это человек, который превратил свой день рождения в мафиозный съезд, а список гостей — в досье. Он помнит всех с 1991 года, знает, кто что подарил на 25 лет, и проверит это на экзамене. Он не боится смешивать Гэтсби, козырьки и лимончелло с «Кристалла». Дон сказал — Дон сделал.</p>
+        <p class="end">Дело закрыто. Фишки на столе. Микрофон ждёт.</p>
+      </div>
+      <div class="don-credits">Досье составили: Кимми, Полина, Саша (Кифа) и Гуля. Чткзбсс 🥂</div>
+    </div>
+  </div>
+</div></section>
 
 <section id="dossiers"><div class="wrap">
   <div class="sec-head"><div class="eyebrow">Съезд семей и кланов</div><h2>Досье</h2><div class="rule"></div>
@@ -550,7 +669,7 @@ let toastT;function toast(t,ms=3800){const el=$('#toast');el.innerHTML=t;el.clas
 /* ---------- countdown ---------- */
 const PARTY=new Date('2026-11-12T00:00:00+03:00');
 function tick(){const d=PARTY-Date.now();const el=$('#count');
-  if(d<=0){el.innerHTML='<div style="min-width:auto"><b>Свершилось</b><small>Дон доволен</small></div>';return}
+  if(d<=0){el.innerHTML='<div style="min-width:auto"><b>С днём рождения!</b><small>Дону 35</small></div>';return}
   const s=Math.floor(d/1000),parts=[[Math.floor(s/86400),'дней'],[Math.floor(s/3600)%24,'часов'],[Math.floor(s/60)%60,'минут'],[s%60,'секунд']];
   el.innerHTML=parts.map(([n,l])=>`<div><b>${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join('')}
 tick();setInterval(tick,1000);
@@ -622,6 +741,14 @@ dlg.addEventListener('close',()=>{const v=dlg.querySelector('video');if(v)v.paus
 function lightbox(s){const d=document.createElement('div');d.className='lb';d.innerHTML=`<img src="${s}" alt=""><button aria-label="Закрыть">✕</button>`;d.onclick=()=>d.remove();dlg.open?dlg.appendChild(d):document.body.appendChild(d)}
 function route(){const h=location.hash;if(h.startsWith('#d-'))openD(h.slice(3))}
 window.addEventListener('hashchange',route);route();
+
+/* ---------- don ---------- */
+(function(){const D=[['1009','Гэтсби с бокалом. Таким Дон войдёт в Кров 12 ноября'],['952','Аватарка-победительница от Гули'],['309','Готовый образ для игры в мафию'],['142','Душнила с бокалом на кухне'],['826','Душнила на квизе'],['1033','Мастер-класс: Дон делает пряник'],['1030','Новогодняя игрушка своими руками'],['669','Воздушный поцелуй всем гостям'],['55','Капитан КВН'],['1919','Юный Дон. Телевизор отцензурирован, 18+']];
+  const box=$('#donThumbs'),main=$('#donMain'),cap=$('#donCap');
+  box.innerHTML=D.map(([id,t],k)=>`<button class="${k?'':'on'}" data-k="${k}" aria-label="${t}"><img src="don/${id}.webp" alt="" loading="lazy"></button>`).join('');
+  box.querySelectorAll('button').forEach(b=>b.onclick=()=>{const [id,t]=D[+b.dataset.k];main.src=`don/${id}.webp`;cap.textContent=t;box.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));goal('don_photo')});
+  main.onclick=()=>lightbox(main.src);
+})();
 
 /* ---------- film strip ---------- */
 (function(){const f=$('#film');
